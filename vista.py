@@ -7,16 +7,16 @@ import os
 class Vista(QMainWindow):
     def __init__(self):
         super().__init__()
-        loadUi('base.ui', self)
+        loadUi('login.ui', self)
         self.slider = QSlider(self)
-        self.slider.setGeometry(10, 400, 380, 20)  # Ajusta la geometría según tus necesidades
-        self.slider.setOrientation(0x1)  # Configura la orientación horizontal
+        self.slider.setGeometry(400, 430, 221, 22)
+        self.slider.setOrientation(0x1)
 
     def setup(self):
         self.comboBox.currentIndexChanged.connect(self.cargar)
         self.slider.valueChanged.connect(self.cargar)
 
-        self.carpeta = 'images'
+        self.carpeta = 'images10'
         lista_archivos = os.listdir(self.carpeta)
         self.slider.setMaximum(len(lista_archivos) - 1)  # Establece el valor máximo del slider
 
