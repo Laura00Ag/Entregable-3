@@ -7,7 +7,7 @@ import os
 class Vista(QMainWindow):
     def __init__(self):
         super().__init__()
-        loadUi('login.ui', self)
+        loadUi('base.ui', self)
         self.slider = QSlider(self)
         self.slider.setGeometry(400, 430, 221, 22)
         self.slider.setOrientation(0x1)
