@@ -19,3 +19,19 @@ class Modelo(QObject):
             plt.imshow(pixel_data, cmap = plt.cm.bone)
         plt.axis('off')
         plt.savefig("temp_image.png")
+
+class DataBase(object):
+
+    def __init__(self):
+        self.__login = "medicoAnalitico"
+        self.__password = "bio12345"
+
+    def setLogin(self,l):
+        self.__login = l
+    
+    def setPassword(self,p):
+        self.__password = p
+
+    def validarUsuario(self,l,p):
+        return(self.__login==l) and (self.__password==p)
+        

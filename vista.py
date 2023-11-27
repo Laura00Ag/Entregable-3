@@ -1,6 +1,7 @@
 from PyQt5.QtWidgets import QMainWindow, QSlider, QWidget, QDialog
 from PyQt5.QtGui import QPixmap
 from PyQt5.uic import loadUi
+from modelo import DataBase
 #from os import listdir,
 #from os.path import listdir, join
 
@@ -63,11 +64,18 @@ class Host(QDialog):
         # validar para abrir
         abrir_visualizador.show()
 
-    def abrir_visualizador100(self):
-        abrir_visualizador = Visualizador(self,size=100)
-        self.hide()
-        # validar para abrir
-        abrir_visualizador.show()
+    def abrir_host(self):
+        abrir_host = Host(self)
+        #self.hide()
+        if DataBase is False:
+            login = self.linea_usuario.text()
+            password = self.linea_contrasena.text()
+            print("Ingreso exitoso...")
+            abrir_host.show()
+        else:
+            abrir_host.show()
+            pass
+
 class Visualizador(QDialog):
     def __init__(self,base=None,size=None):
         super().__init__(base)
@@ -92,9 +100,6 @@ class Visualizador(QDialog):
         self.hide()
         # validar para abrir
         abrir_host.show()
-
-
-    
         self.setup()
 
     def setup(self):
