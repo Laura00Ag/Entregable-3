@@ -3,9 +3,9 @@ import pydicom
 import matplotlib.pyplot as plt
 
 class Modelo(QObject):
-    def __init__(self):
+    def __init__(self,size=None):
         super().__init__()
-        self.carpeta = 'images'
+        self.carpeta = 'images'+str(size)
 
     def picture_creator(self, imagen):
         ds = pydicom.dcmread(self.carpeta+'/'+imagen)
