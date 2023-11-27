@@ -89,7 +89,7 @@ background-color: rgb(255, 170, 0);</string>
      <enum>QFrame::Raised</enum>
     </property>
    </widget>
-   <widget class="QPushButton" name="Iniciarsesin">
+   <widget class="QPushButton" name="cerrar_sesion">
     <property name="geometry">
      <rect>
       <x>690</x>
@@ -109,7 +109,7 @@ border-radius:10px</string>
      <string>Cerrar sesión</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="Iniciarsesin_2">
+   <widget class="QPushButton" name="atras">
     <property name="geometry">
      <rect>
       <x>220</x>

@@ -149,7 +149,7 @@ p, li { white-space: pre-wrap; }
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-image: url(:/newPrefix/1-logo-ico.png);
+      <string notr="true">image: url(:/newPrefix/1-logo-ico-_1_.jpg);
 background-color: qradialgradient(spread:reflect, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 183, 0, 237), stop:0.892045 rgba(0, 0, 0, 0));
 
 border-radius:20px</string>
@@ -359,7 +359,7 @@ border-radius:10px</string>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
-  <include location="images diseño ui/Expectativa-05-1.jpg"/>
+  <include location="imagenes diseño ui/1-logo-ico-_1_.jpg"/>
  </resources>
  <connections/>
 </ui>
