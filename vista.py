@@ -38,7 +38,25 @@ class Host(QDialog):
         super().__init__(parent)
         loadUi("host.ui", self)
         #self.__ventanaPadre = parent
-        #self.botones()
+        self.botones()
+
+    def botones(self):
+        self.cerrar_sesion.clicked.connect(self.abrir_base)
+        self.boton10.clicked.connect(self.abrir_visualizador)
+        self.boton50.clicked.connect(self.abrir_visualizador)
+        self.boton100.clicked.connect(self.abrir_visualizador)
+
+    def abrir_base(self):
+        abrir_base = Base(self)
+        #self.hide()
+        # validar para abrir
+        abrir_base.show()
+
+    def abrir_visualizador(self):
+        abrir_visualizador = Visualizador(self)
+        #self.hide()
+        # validar para abrir
+        abrir_visualizador.show()
 
 class Visualizador(QWidget):
     def __init__(self,base=None):
@@ -50,9 +68,9 @@ class Visualizador(QWidget):
         self.__ventanaPadre = base
         self.setup()
 
-    def setup(self):
-        self.comboBox.currentIndexChanged.connect(self.cargar)
-        self.slider.valueChanged.connect(self.cargar)
+    #def setup(self):
+        #self.comboBox.currentIndexChanged.connect(self.cargar)
+        #self.slider.valueChanged.connect(self.cargar)
 
         self.carpeta = 'images10'
         lista_archivos = os.listdir(self.carpeta)
