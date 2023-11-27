@@ -108,6 +108,9 @@ p, li { white-space: pre-wrap; }
        <height>31</height>
       </rect>
      </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(255, 170, 0);
 border-radius:10px</string>
@@ -185,6 +188,9 @@ border-radius:10px</string>
         <width>131</width>
         <height>71</height>
        </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
       </property>
       <property name="styleSheet">
        <string notr="true">background-color: rgb(255, 205, 3);

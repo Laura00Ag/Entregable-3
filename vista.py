@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QMainWindow, QSlider, QForm
+from PyQt5.QtWidgets import QMainWindow, QSlider, QWidget
 from PyQt5.QtGui import QPixmap
 from PyQt5.uic import loadUi
 
@@ -50,6 +50,8 @@ class Base(QMainWindow):
 
     def abrir_host(self):
         abrir_host = Host(self)
+        self.setmodal()
+        self.hide()
         # validar para abrir
         Host.show()
 
@@ -57,10 +59,12 @@ class Host(QMainWindow):
     def __init__(self,base=None):
         super().__init__(base)
         loadUi("Host.ui",self)
+        self.__ventanaPadre = base
         self.botones()
 
-class Visualizador(QForm):
+class Visualizador(QWidget):
     def __init__(self,base=None):
         super().__init__(base)
         loadUi("Visualizador.ui",self)
+        self.__ventanaPadre = base
         self.botones()
