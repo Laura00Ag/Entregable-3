@@ -42,23 +42,34 @@ class Host(QDialog):
 
     def botones(self):
         self.cerrar_sesion.clicked.connect(self.abrir_base)
-        self.boton10.clicked.connect(self.abrir_visualizador)
-        self.boton50.clicked.connect(self.abrir_visualizador)
-        self.boton100.clicked.connect(self.abrir_visualizador)
+        self.boton10.clicked.connect(self.abrir_visualizador10)
+        self.boton50.clicked.connect(self.abrir_visualizador50)
+        self.boton100.clicked.connect(self.abrir_visualizador100)
 
     def abrir_base(self):
         abrir_base = Base(self)
         self.hide()
         abrir_base.show()
 
-    def abrir_visualizador(self):
-        abrir_visualizador = Visualizador(self)
+    def abrir_visualizador10(self):
+        abrir_visualizador = Visualizador(self,size=10)
         self.hide()
         # validar para abrir
         abrir_visualizador.show()
 
+    def abrir_visualizador50(self):
+        abrir_visualizador = Visualizador(self,size=50)
+        self.hide()
+        # validar para abrir
+        abrir_visualizador.show()
+
+    def abrir_visualizador100(self):
+        abrir_visualizador = Visualizador(self,size=100)
+        self.hide()
+        # validar para abrir
+        abrir_visualizador.show()
 class Visualizador(QDialog):
-    def __init__(self,base=None):
+    def __init__(self,base=None,size=None):
         super().__init__(base)
         loadUi("Visualizador.ui",self)
         self.slider = QSlider(self)
@@ -84,18 +95,19 @@ class Visualizador(QDialog):
 
 
     
-        #self.setup()
+        self.setup()
 
-    #def setup(self):
-        #self.comboBox.currentIndexChanged.connect(self.cargar)
-        #self.slider.valueChanged.connect(self.cargar)
+    def setup(self):
+        self.comboBox.currentIndexChanged.connect(self.cargar)
+        self.slider.valueChanged.connect(self.cargar)
 
-        #self.carpeta = 'images10'
-        #lista_archivos = os.listdir(self.carpeta)
-        #self.slider.setMaximum(len(lista_archivos) - 1)  # Establece el valor máximo del slider
+        self.carpeta = 'images'+str(self.size)
+        lista_archivos = os.listdir(self.carpeta)
+        self.slider.setMaximum(len(lista_archivos) - 1) 
+        self.comboBox.setVisible(False)
 
-        #for archivo in lista_archivos:
-            #self.comboBox.addItem(archivo)
+        for archivo in lista_archivos:
+                self.comboBox.addItem(archivo)
 
     def addControler(self, c):
         self.__mi_coordinador = c
