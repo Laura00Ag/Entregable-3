@@ -8,7 +8,11 @@ class Modelo(QObject):
         self.carpeta = 'images'
 
     def picture_creator(self, imagen,size=None):
-        self.carpeta += str(self.size)
+        self.size = size
+        if size != None:
+            self.carpeta += str(self.size)
+        else:
+            self.carpeta = 'images10'
         ds = pydicom.dcmread(self.carpeta+'/'+imagen)
         pixel_data = ds.pixel_array
         if (len(pixel_data.shape))==3:

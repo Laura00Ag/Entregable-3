@@ -1,7 +1,9 @@
-from PyQt5.QtWidgets import QMainWindow, QSlider, QWidget, QDialog
+from PyQt5.QtWidgets import QMainWindow, QSlider, QWidget, QDialog,QComboBox
 from PyQt5.QtGui import QPixmap
 from PyQt5.uic import loadUi
 from modelo import DataBase
+from modelo import Modelo
+#from controlador import Controlador
 #from os import listdir,
 #from os.path import listdir, join
 
@@ -33,12 +35,17 @@ class Base(QMainWindow):
         #self.hide()
         # validar para abrir
         abrir_host.show()
+    
+    def obtenerNew(self):
+        host = Host()
+        return host.retornar()
 
 class Host(QDialog):
     def __init__(self, base=None):
         super().__init__(base)
         loadUi("host.ui", self)
         self.ventanaPadre = base
+        self.vista= ""
         self.botones()
 
     def botones(self):
@@ -53,26 +60,39 @@ class Host(QDialog):
         abrir_base.show()
 
     def abrir_visualizador10(self):
+        modelo =Modelo()
+
         abrir_visualizador = Visualizador(self,size=10)
+        self.vista = abrir_visualizador
+       
         self.hide()
         # validar para abrir
         abrir_visualizador.show()
+    
 
+    def retornar(self):
+        return self.vista
+    
     def abrir_visualizador50(self):
+        modelo =Modelo()
         abrir_visualizador = Visualizador(self,size=50)
+        self.vista = abrir_visualizador
         self.hide()
         # validar para abrir
         abrir_visualizador.show()
 
     def abrir_visualizador100(self):
+        modelo =Modelo()
         abrir_visualizador = Visualizador(self,size=100)
+        self.vista = abrir_visualizador
+        
         self.hide()
         # validar para abrir
         abrir_visualizador.show()
         
     def abrir_host(self):
         abrir_host = Host(self)
-        #self.hide()
+        self.hide()
         if DataBase is False:
             login = self.linea_usuario.text()
             password = self.linea_contrasena.text()
@@ -83,13 +103,15 @@ class Host(QDialog):
             pass
 
 class Visualizador(QDialog):
-    def __init__(self,base=None,size=None):
-        super().__init__(base)
+    def __init__(self,Base=None,size=None):
+        super().__init__(Base)
         loadUi("Visualizador.ui",self)
         self.slider = QSlider(self)
         self.slider.setGeometry(400, 430, 221, 22)
         self.slider.setOrientation(0x1)
-        self.ventanaPadre = base
+        self.comboBox = QComboBox(self)
+        self.ventanaPadre = Base
+        self.size = size
         self.botones()
 
     def botones(self):
@@ -106,14 +128,18 @@ class Visualizador(QDialog):
         self.hide()
         # validar para abrir
         abrir_host.show()
-        self.setup()
+        #self.setup()
 
     def setup(self):
         self.comboBox.currentIndexChanged.connect(self.cargar)
         self.slider.valueChanged.connect(self.cargar)
-
-        self.carpeta = 'images'+str(self.size)
+         
+        if self.size != None:
+            self.carpeta = 'images'+str(self.size)
+        else:
+            self.carpeta = 'images10'
         lista_archivos = os.listdir(self.carpeta)
+        
         self.slider.setMaximum(len(lista_archivos) - 1) 
         self.comboBox.setVisible(False)
 
