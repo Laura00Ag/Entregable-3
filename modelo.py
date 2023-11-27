@@ -3,11 +3,12 @@ import pydicom
 import matplotlib.pyplot as plt
 
 class Modelo(QObject):
-    def __init__(self,size=None):
+    def __init__(self):
         super().__init__()
-        self.carpeta = 'images'+str(size)
+        self.carpeta = 'images'
 
-    def picture_creator(self, imagen):
+    def picture_creator(self, imagen,size=None):
+        self.carpeta += str(self.size)
         ds = pydicom.dcmread(self.carpeta+'/'+imagen)
         pixel_data = ds.pixel_array
         if (len(pixel_data.shape))==3:

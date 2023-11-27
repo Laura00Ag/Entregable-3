@@ -8,8 +8,8 @@ class Controlador:
         self.modelo = modelo
         self.vista = vista
 
-    def img_conextion(self, imagen):
-       self.modelo.picture_creator(imagen)
+    def img_conextion(self, imagen,size=None):
+       self.modelo.picture_creator(imagen,size)
 
     def main():
         app = QApplication(sys.argv)

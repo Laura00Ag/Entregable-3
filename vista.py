@@ -116,7 +116,7 @@ class Visualizador(QDialog):
     def cargar(self):
         index = self.slider.value()
         imagen = self.comboBox.itemText(index)
-        self.__mi_coordinador.img_conextion(imagen)
+        self.__mi_coordinador.img_conextion(imagen,self.size)
 
         pixmap = QPixmap("temp_image.png")
         self.img.setPixmap(pixmap)
