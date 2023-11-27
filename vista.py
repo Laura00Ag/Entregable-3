@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QMainWindow, QSlider
+from PyQt5.QtWidgets import QMainWindow, QSlider, QForm
 from PyQt5.QtGui import QPixmap
 from PyQt5.uic import loadUi
 
@@ -37,13 +37,30 @@ class Vista(QMainWindow):
         os.remove('temp_image.png')
 
 class Base(QMainWindow):
-    def __init__(self):
-        super().__init__()
+    def __init__(self,base=None):
+        super().__init__(base)
         loadUi("base.ui",self)
-        self.setup()
+        # crear validacion
+        #self.__usuario: "medicoAnalitico"
+        #self.__contraseña: "bio12345"
+        self.botones()
+
+    def botones(self):
+        self.iniciar_sesion.clicked.connect(self.abrir_host)
+
+    def abrir_host(self):
+        abrir_host = Host(self)
+        # validar para abrir
+        Host.show()
 
 class Host(QMainWindow):
-    def __init__(self):
-        super().__init__()
+    def __init__(self,base=None):
+        super().__init__(base)
         loadUi("Host.ui",self)
-        self.setup()
+        self.botones()
+
+class Visualizador(QForm):
+    def __init__(self,base=None):
+        super().__init__(base)
+        loadUi("Visualizador.ui",self)
+        self.botones()

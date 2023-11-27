@@ -147,7 +147,7 @@ border-radius:10px</string>
 border-radius:10px</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="Iniciarsesin">
+    <widget class="QPushButton" name="iniciar_sesion">
      <property name="geometry">
       <rect>
        <x>80</x>
