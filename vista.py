@@ -34,10 +34,10 @@ class Base(QMainWindow):
         abrir_host.show()
 
 class Host(QDialog):
-    def __init__(self, parent=None):
-        super().__init__(parent)
+    def __init__(self, base=None):
+        super().__init__(base)
         loadUi("host.ui", self)
-        #self.__ventanaPadre = parent
+        self.ventanaPadre = base
         self.botones()
 
     def botones(self):
@@ -48,36 +48,35 @@ class Host(QDialog):
 
     def abrir_base(self):
         abrir_base = Base(self)
-        #self.hide()
-        # validar para abrir
+        self.hide()
         abrir_base.show()
 
     def abrir_visualizador(self):
         abrir_visualizador = Visualizador(self)
-        #self.hide()
+        self.hide()
         # validar para abrir
         abrir_visualizador.show()
 
-class Visualizador(QWidget):
+class Visualizador(QDialog):
     def __init__(self,base=None):
         super().__init__(base)
         loadUi("Visualizador.ui",self)
         self.slider = QSlider(self)
         self.slider.setGeometry(400, 430, 221, 22)
         self.slider.setOrientation(0x1)
-        self.__ventanaPadre = base
-        self.setup()
+        self.ventanaPadre = base
+        #self.setup()
 
     #def setup(self):
         #self.comboBox.currentIndexChanged.connect(self.cargar)
         #self.slider.valueChanged.connect(self.cargar)
 
-        self.carpeta = 'images10'
-        lista_archivos = os.listdir(self.carpeta)
-        self.slider.setMaximum(len(lista_archivos) - 1)  # Establece el valor máximo del slider
+        #self.carpeta = 'images10'
+        #lista_archivos = os.listdir(self.carpeta)
+        #self.slider.setMaximum(len(lista_archivos) - 1)  # Establece el valor máximo del slider
 
-        for archivo in lista_archivos:
-            self.comboBox.addItem(archivo)
+        #for archivo in lista_archivos:
+            #self.comboBox.addItem(archivo)
 
     def addControler(self, c):
         self.__mi_coordinador = c
