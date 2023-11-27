@@ -65,6 +65,25 @@ class Visualizador(QDialog):
         self.slider.setGeometry(400, 430, 221, 22)
         self.slider.setOrientation(0x1)
         self.ventanaPadre = base
+        self.botones()
+
+    def botones(self):
+        self.cerrar_sesion.clicked.connect(self.abrir_base)
+        self.atras.clicked.connect(self.abrir_host)
+
+    def abrir_base(self):
+        abrir_base = Base(self)
+        self.hide()
+        abrir_base.show()
+
+    def abrir_host(self):
+        abrir_host = Host(self)
+        self.hide()
+        # validar para abrir
+        abrir_host.show()
+
+
+    
         #self.setup()
 
     #def setup(self):
