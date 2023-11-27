@@ -132,7 +132,7 @@ border-radius:10px</string>
   </widget>
  </widget>
  <resources>
-  <include location="Imagenes UI/1-logo-ico.png"/>
+  <include location="images diseño ui/1-logo-ico.png"/>
  </resources>
  <connections/>
 </ui>

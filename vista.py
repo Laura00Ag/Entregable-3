@@ -35,3 +35,9 @@ class Vista(QMainWindow):
         pixmap = QPixmap("temp_image.png")
         self.img.setPixmap(pixmap)
         os.remove('temp_image.png')
+
+class Base(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        loadUi("base.ui",self)
+        self.setup()

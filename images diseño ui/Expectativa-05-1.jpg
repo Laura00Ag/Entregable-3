@@ -1,0 +1,7 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>1-logo-ico.png</file>
+    <file>Resonadorinterior-1-1024x637.webp</file>
+  </qresource>
+  <qresource prefix="newPrefix"/>
+</RCC>

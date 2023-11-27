@@ -230,7 +230,7 @@ p, li { white-space: pre-wrap; }
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
-  <include location="Imagenes UI/Expectativa-05-1.jpg"/>
+  <include location="images diseño ui/Expectativa-05-1.jpg"/>
  </resources>
  <connections/>
 </ui>
