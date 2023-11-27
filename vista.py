@@ -41,3 +41,9 @@ class Base(QMainWindow):
         super().__init__()
         loadUi("base.ui",self)
         self.setup()
+
+class Host(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        loadUi("Host.ui",self)
+        self.setup()
