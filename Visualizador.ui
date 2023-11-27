@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>Visulizador</class>
+ <widget class="QDialog" name="Visulizador">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
     <width>807</width>
-    <height>476</height>
+    <height>477</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Dialog</string>
   </property>
   <widget class="QWidget" name="widget" native="true">
    <property name="geometry">
@@ -131,8 +131,6 @@ border-radius:10px</string>
    </widget>
   </widget>
  </widget>
- <resources>
-  <include location="images diseño ui/1-logo-ico.png"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
