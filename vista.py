@@ -64,6 +64,12 @@ class Host(QDialog):
         # validar para abrir
         abrir_visualizador.show()
 
+    def abrir_visualizador100(self):
+        abrir_visualizador = Visualizador(self,size=100)
+        self.hide()
+        # validar para abrir
+        abrir_visualizador.show()
+        
     def abrir_host(self):
         abrir_host = Host(self)
         #self.hide()
