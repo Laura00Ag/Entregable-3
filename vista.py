@@ -8,20 +8,20 @@ class Vista(QMainWindow):
     def __init__(self):
         super().__init__()
         loadUi('base.ui', self)
-        self.slider = QSlider(self)
-        self.slider.setGeometry(400, 430, 221, 22)
-        self.slider.setOrientation(0x1)
+        #self.slider = QSlider(self)
+        #self.slider.setGeometry(400, 430, 221, 22)
+        #self.slider.setOrientation(0x1)
 
     def setup(self):
-        self.comboBox.currentIndexChanged.connect(self.cargar)
+        #self.comboBox.currentIndexChanged.connect(self.cargar)
         self.slider.valueChanged.connect(self.cargar)
 
         self.carpeta = 'images10'
         lista_archivos = os.listdir(self.carpeta)
         self.slider.setMaximum(len(lista_archivos) - 1)  # Establece el valor máximo del slider
 
-        for archivo in lista_archivos:
-            self.comboBox.addItem(archivo)
+        #for archivo in lista_archivos:
+            #self.comboBox.addItem(archivo)
 
     def addControler(self, c):
         self.__mi_coordinador = c
