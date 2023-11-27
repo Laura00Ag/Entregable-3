@@ -1,8 +1,8 @@
-from PyQt5.QtWidgets import QMainWindow, QSlider, QWidget
+from PyQt5.QtWidgets import QMainWindow, QSlider, QWidget, QDialog
 from PyQt5.QtGui import QPixmap
 from PyQt5.uic import loadUi
-from os import listdir, isfile
-from os.path import listdir, join
+#from os import listdir,
+#from os.path import listdir, join
 
 import os
 
@@ -11,9 +11,9 @@ class Vista(QMainWindow):
         super().__init__()
         loadUi('base.ui', self)
 
-    def leer_imagenesUI(imagenes_dieseño_ui):
-        images = [f for f in listdir(imagenes_dieseño_ui) if isfile(join(imagenes_dieseño_ui, f)) and f.lower().endswith(('.png', '.jpg', '.jpeg', '.webp'))]
-        return images
+    #def leer_imagenesUI(imagenes_dieseño_ui):
+       # images = [f for f in listdir(imagenes_dieseño_ui) if isfile(join(imagenes_dieseño_ui, f)) and f.lower().endswith(('.png', '.jpg', '.jpeg', '.webp'))]
+       # return images
 
 class Base(QMainWindow):
     def __init__(self,base=None):
@@ -29,17 +29,16 @@ class Base(QMainWindow):
 
     def abrir_host(self):
         abrir_host = Host(self)
-        self.setmodal()
-        self.hide()
+        #self.hide()
         # validar para abrir
-        Host.show()
+        abrir_host.show()
 
-class Host(QMainWindow):
-    def __init__(self,base=None):
-        super().__init__(base)
-        loadUi("Host.ui",self)
-        self.__ventanaPadre = base
-        self.botones()
+class Host(QDialog):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        loadUi("host.ui", self)
+        #self.__ventanaPadre = parent
+        #self.botones()
 
 class Visualizador(QWidget):
     def __init__(self,base=None):

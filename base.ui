@@ -217,5 +217,22 @@ p, li { white-space: pre-wrap; }
  <resources>
   <include location="imagenes diseño ui/1-logo-ico-_1_.jpg"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>iniciar_sesion</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>LOGIN</receiver>
+   <slot>setAnimated(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>205</x>
+     <y>339</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>216</x>
+     <y>516</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
